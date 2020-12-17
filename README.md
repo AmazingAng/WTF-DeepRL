@@ -1,5 +1,5 @@
 # Deep RL elements
-Deep RL algorithm with pytorch (written in jupyter notebook).
+Deep RL algorithm with pytorch (written in jupyter notebook). Algorithms are tested on Atari Games, mostly with Pong. Feel free to ask questions and report bugs with Issues. :)
 ### 1. Deep Q-learning
 ### 2. DQN with prioritized experience replay (PER)
 ### 3. Double DQN (DDQN)
