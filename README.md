@@ -13,3 +13,9 @@ Deep RL algorithm with pytorch (written in jupyter notebook).
 - torch 1.4.0
 - gym[atari]
 - tensorboardX 
+
+# Other useful deep RL algorithm zoos (pytorch)
+- [Reinforcement-Learning](https://github.com/andri27-ts/Reinforcement-Learning)
+- [DeepRL-Tutorials](https://github.com/qfettes/DeepRL-Tutorials)
+- [Deep-Reinforcement-Learning-Algorithms-with-PyTorch](https://github.com/p-christ/Deep-Reinforcement-Learning-Algorithms-with-PyTorch)
+
