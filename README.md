@@ -8,6 +8,7 @@ Deep RL algorithm with pytorch (written in jupyter notebook). Algorithms are tes
 ### 6. DQN with noisy net (Noisy DQN)
 ### 7. DQN with intrinsic curiosity module (ICM DQN)
 ### 8. Deep recurrent Q-learning (DRQN)
+### 9. N-step DQN
 
 # Prerequisite 
 - torch 1.4.0
