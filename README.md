@@ -1,5 +1,5 @@
 # Deep RL elements
-pytorch深度学习算法库及教程，2020年在[知乎](https://www.zhihu.com/column/c_1268923100969820160)上连载。
+pytorch深度强化学习算法库及教程，2020年在[知乎](https://www.zhihu.com/column/c_1268923100969820160)上连载。
 
 代码写在jupyter notebook中。算法用Atari Games测试，大部分用的Pong。
 
