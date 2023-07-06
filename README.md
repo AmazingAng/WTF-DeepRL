@@ -1,9 +1,19 @@
-# Deep RL elements
-pytorch深度强化学习算法库及教程，2020年在[知乎](https://www.zhihu.com/column/c_1268923100969820160)上连载。
+# WTF 深度强化学习
+WTF 深度强化学习算法库及教程，学习并复现经典的深度强化学习算法。
 
-代码写在jupyter notebook中。算法用Atari Games测试，大部分用的Pong。
+深度强化学习算法使用pytorch实现，写在jupyter notebook中。用Atari Games中的Pong测试。
 
-**第1讲：Deep Q-learning**：[代码](https://github.com/AmazingAng/deep-RL-elements/tree/master/01_DQN) | [文章](https://github.com/AmazingAng/deep-RL-elements/tree/master/01_DQN/readme.md)
+## 先修课程
+
+1. 机器学习/深度学习
+
+2. python编程
+
+3. 经典强化学习
+
+## 目录
+
+**第1讲：Deep Q-learning**：[文章](https://github.com/AmazingAng/WTF-DeepRL/tree/master/01_DQN/readme.md) | [Code](https://github.com/AmazingAng/WTF-DeepRL/tree/master/01_DQN) | [Google Colab](https://colab.research.google.com/github/AmazingAng/WTF-DeepRL/blob/master/01_DQN/DQN.ipynb#)
 
 **第2讲：Prioritized Experience Replay (PER)**：[代码](https://github.com/AmazingAng/deep-RL-elements/tree/master/02_DQN_PER) | [文章](https://github.com/AmazingAng/deep-RL-elements/tree/master/02_DQN_PER/readme.md)
 
