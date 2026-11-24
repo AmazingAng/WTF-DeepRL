@@ -1,4 +1,6 @@
 # WTF 深度强化学习
+
+用 Python 3.13 创建环境并运行 `python -m pip install -r requirements.txt`。在仓库根目录启动 Notebook 服务，然后打开各章 notebook。课程使用 Gymnasium 的 `ALE/Pong-v5`。单步示例在终止或截断时重置环境，只对终止遮蔽后续价值。N-step 示例将截断也视为窗口边界，避免采样跨越两局。
 WTF 深度强化学习算法库及教程，学习并复现经典的深度强化学习算法。
 
 深度强化学习算法使用pytorch实现，写在jupyter notebook中。用Atari Games中的Pong测试。

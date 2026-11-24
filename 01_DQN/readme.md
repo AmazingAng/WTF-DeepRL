@@ -71,10 +71,11 @@ class Agent:
 
 ```python
 # 在 Google Colab Rsearch 中需要安装的库
-# !pip install gym[atari]
-# !pip install autorom[accept-rom-license]
 
-import gym, random, pickle, os.path, math, glob
+import ale_py
+import gymnasium as gym
+gym.register_envs(ale_py)
+import random, pickle, os.path, math, glob
 
 import numpy as np
 import pandas as pd
@@ -88,7 +89,7 @@ import torch.nn.functional as F
 import torch.autograd as autograd
 import pdb
 
-from gym.wrappers import AtariPreprocessing, LazyFrames, FrameStack
+from gymnasium.wrappers import AtariPreprocessing, FrameStackObservation
 
 from IPython.display import clear_output
 from torch.utils.tensorboard import SummaryWriter
@@ -107,17 +108,17 @@ Pong是Atari中一个仿真打乒乓球的游戏：玩家和电脑每人拿一�
 
 ```python
 # Create and wrap the environment
-env = gym.make('PongNoFrameskip-v4')
+env = gym.make('ALE/Pong-v5', frameskip=1, repeat_action_probability=0.0)
 env = AtariPreprocessing(env,
                          scale_obs=False,
                          terminal_on_life_loss=True,
                          )
-env = FrameStack(env, num_stack=4)
+env = FrameStackObservation(env, stack_size=4)
 n_actions = env.action_space.n
 state_dim = env.observation_space.shape
 
 # env.render()
-test = env.reset()
+test, _ = env.reset()
 for i in range(100):
     test = env.step(env.action_space.sample())[0]
 
@@ -233,7 +234,7 @@ class DQNAgent:
 
     def observe(self, lazyframe):
         # from Lazy frame to tensor
-        state =  torch.from_numpy(lazyframe.__array__()[None]/255).float()
+        state =  torch.from_numpy(np.asarray(lazyframe)[None]/255).float()
         if self.USE_CUDA:
             state = state.cuda()
         return state
@@ -332,13 +333,13 @@ class DQNAgent:
 ```python
 # if __name__ == '__main__':
 
-# Training DQN in PongNoFrameskip-v4
-env = gym.make('PongNoFrameskip-v4')
+# Training DQN in ALE/Pong-v5
+env = gym.make('ALE/Pong-v5', frameskip=1, repeat_action_probability=0.0)
 env = AtariPreprocessing(env,
                          scale_obs=False,
                          terminal_on_life_loss=True,
                          )
-env = FrameStack(env, num_stack=4)
+env = FrameStackObservation(env, stack_size=4)
 
 gamma = 0.99
 epsilon_max = 1
@@ -362,7 +363,7 @@ state_dim = env.observation_space.shape[1]
 state_channel = env.observation_space.shape[0]
 agent = DQNAgent(in_channels = state_channel, action_space= action_space, USE_CUDA = USE_CUDA, lr = learning_rate, memory_size = max_buff)
 
-frame = env.reset()
+frame, _ = env.reset()
 
 episode_reward = 0
 all_rewards = []
@@ -382,7 +383,7 @@ for i in range(frames):
     state_tensor = agent.observe(frame)
     action = agent.act(state_tensor, epsilon)
 
-    next_frame, reward, done ,_ = env.step(action)
+    next_frame, reward, done, truncated, _ = env.step(action)
 
     episode_reward += reward
     agent.memory_buffer.push(frame, action, reward, next_frame, done)
@@ -402,9 +403,8 @@ for i in range(frames):
     if i % update_tar_interval == 0:
         agent.DQN_target.load_state_dict(agent.DQN.state_dict())
 
-    if done:
-
-        frame = env.reset()
+    if done or truncated:
+        frame, _ = env.reset()
 
         all_rewards.append(episode_reward)
         episode_reward = 0
