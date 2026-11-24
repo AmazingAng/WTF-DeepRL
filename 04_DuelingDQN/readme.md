@@ -45,7 +45,7 @@ class Dueling_DQN(nn.Module):
         x = x.view(x.size(0), -1)
         advantage = self.advantage(x)
         value     = self.value(x)
-        return value + advantage  - advantage.mean()
+        return value + advantage  - advantage.mean(dim=1, keepdim=True)
     
     def feature_size(self):
         return self.features(autograd.Variable(torch.zeros(1, *self.input_shape))).view(1, -1).size(1)

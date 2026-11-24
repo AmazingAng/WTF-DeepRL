@@ -21,9 +21,9 @@ WTF 深度强化学习算法库及教程，学习并复现经典的深度强化�
 
 **第4讲：Dueling DQN**：[代码](https://github.com/AmazingAng/deep-RL-elements/tree/master/04_DuelingDQN) | [文章](https://github.com/AmazingAng/deep-RL-elements/tree/master/04_DuelingDQN/readme.md)
 
-**第5讲：DQN with Soft Update (Soft DQN)**：[代码](https://github.com/AmazingAng/deep-RL-elements/tree/master/05_SoftDQN) | [文章](https://github.com/AmazingAng/deep-RL-elements/tree/master/readme.md)
+**第5讲：DQN with Soft Update (Soft DQN)**：[代码](https://github.com/AmazingAng/deep-RL-elements/tree/master/05_SoftDQN) | [文章](./05_SoftDQN/readme.md)
 
-**第6讲：DQN with Noisy Net**：[代码](https://github.com/AmazingAng/deep-RL-elements/tree/master/06_NoisyDQN) | [文章](https://github.com/AmazingAng/deep-RL-elements/tree/master/readme.md)
+**第6讲：DQN with Noisy Net**：[代码](https://github.com/AmazingAng/deep-RL-elements/tree/master/06_NoisyDQN) | [文章](./06_NoisyDQN/readme.md)
 
 **第7讲：DQN with Intrinsic Curiosity Module**：[代码](https://github.com/AmazingAng/deep-RL-elements/tree/master/07_ICMDQN) | [文章](https://github.com/AmazingAng/deep-RL-elements/tree/master/07_ICMDQN/readme.md)
 
